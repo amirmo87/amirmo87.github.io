@@ -1,0 +1,1000 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+
+    --bg: #07111f;
+
+    --card: rgba(12, 26, 43, 0.91);
+
+    --border: rgba(96, 165, 250, 0.15);
+
+    --primary: #60a5fa;
+
+    --primary-light: #93c5fd;
+
+    --text: #e5edf7;
+
+    --muted: #7f95ad;
+
+    --green: #4ade80;
+
+    --red: #fb7185;
+
+    --yellow: #facc15;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(37, 99, 235, 0.14),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 85% 90%,
+            rgba(14, 165, 233, 0.08),
+            transparent 30%
+        ),
+
+        var(--bg);
+
+    color: var(--text);
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* Mathematical background */
+
+.background-grid {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.16;
+
+    background-image:
+
+        linear-gradient(
+            rgba(96,165,250,0.07) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(96,165,250,0.07) 1px,
+            transparent 1px
+        );
+
+    background-size: 40px 40px;
+}
+
+
+/* Main */
+
+.container {
+
+    width:
+        min(1050px, calc(100% - 36px));
+
+    margin: auto;
+
+    padding:
+        45px 0 25px;
+}
+
+
+/* Header */
+
+.header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 28px;
+}
+
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.logo-symbol {
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #38bdf8
+        );
+
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 10px 30px
+        rgba(37,99,235,0.25);
+}
+
+
+.header h1 {
+
+    font-size: 26px;
+
+    letter-spacing: -0.5px;
+}
+
+
+.header p {
+
+    margin-top: 4px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+.formula-header {
+
+    color: var(--primary-light);
+
+    font-size: 20px;
+}
+
+
+/* Cards */
+
+.card {
+
+    background: var(--card);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 17px;
+
+    padding: 23px;
+
+    margin-bottom: 16px;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.22);
+
+    backdrop-filter: blur(14px);
+
+    animation:
+        appear 0.35s ease;
+}
+
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Section heading */
+
+.section-title,
+.mini-heading {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.section-title {
+
+    margin-bottom: 19px;
+}
+
+
+.mini-heading {
+
+    margin-bottom: 17px;
+}
+
+
+.section-title h2,
+.mini-heading h2 {
+
+    font-size: 18px;
+}
+
+
+.section-title p,
+.mini-heading p {
+
+    margin-top: 3px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+.number {
+
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 10px;
+
+    background:
+        rgba(96,165,250,0.08);
+
+    border:
+        1px solid rgba(96,165,250,0.14);
+
+    color: var(--primary-light);
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.small-number {
+
+    width: 34px;
+    height: 34px;
+
+    font-size: 11px;
+}
+
+
+/* Input */
+
+.input-wrapper {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: #071321;
+
+    border:
+        1px solid rgba(96,165,250,0.17);
+
+    border-radius: 12px;
+
+    padding: 6px 7px 6px 15px;
+}
+
+
+.input-wrapper:focus-within {
+
+    border-color:
+        rgba(96,165,250,0.55);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(96,165,250,0.07);
+}
+
+
+.input-label {
+
+    color: var(--primary-light);
+
+    font-size: 17px;
+}
+
+
+#functionInput {
+
+    flex: 1;
+
+    min-width: 0;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 16px;
+}
+
+
+#functionInput::placeholder {
+
+    color: #52667b;
+}
+
+
+#analyzeBtn {
+
+    border: none;
+
+    border-radius: 9px;
+
+    padding: 11px 17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #0ea5e9
+        );
+
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+#analyzeBtn:hover {
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 7px 20px
+        rgba(37,99,235,0.3);
+}
+
+
+/* Examples */
+
+.examples {
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-top: 12px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+.example-btn {
+
+    border:
+        1px solid rgba(96,165,250,0.12);
+
+    background:
+        rgba(96,165,250,0.04);
+
+    color: #9eb7d2;
+
+    padding: 5px 8px;
+
+    border-radius: 6px;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.example-btn:hover {
+
+    background:
+        rgba(96,165,250,0.1);
+
+    color: white;
+}
+
+
+/* Error */
+
+.error-message {
+
+    display: none;
+
+    margin-top: 12px;
+
+    padding: 10px 12px;
+
+    border-radius: 9px;
+
+    background:
+        rgba(251,113,133,0.07);
+
+    border:
+        1px solid rgba(251,113,133,0.17);
+
+    color: #fda4af;
+
+    font-size: 12px;
+}
+
+
+.hidden {
+
+    display: none !important;
+}
+
+
+/* Function */
+
+.compact-card {
+
+    padding-top: 18px;
+
+    padding-bottom: 18px;
+}
+
+
+.function-display {
+
+    text-align: center;
+
+    padding: 5px;
+
+    font-size: 25px;
+
+    color: #dbeafe;
+}
+
+
+/* Coefficient line */
+
+.coefficient-line {
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    padding-bottom: 15px;
+
+    margin-bottom: 16px;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,0.055);
+
+    color: #6f849b;
+
+    font-size: 11px;
+}
+
+
+.coefficient-line span:not(:first-child) {
+
+    color: #8196ac;
+}
+
+
+.coefficient-line b {
+
+    color: var(--primary-light);
+
+    font-weight: 600;
+}
+
+
+.coefficient-line strong {
+
+    color: #b8c9da;
+
+    font-weight: 500;
+}
+
+
+/* Important row */
+
+.important-row {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 13px 15px;
+
+    border-radius: 11px;
+
+    background:
+        rgba(96,165,250,0.035);
+
+    border:
+        1px solid
+        rgba(96,165,250,0.08);
+
+    margin-bottom: 12px;
+}
+
+
+.label {
+
+    display: block;
+
+    color: #71869d;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.8px;
+
+    margin-bottom: 5px;
+}
+
+
+.formula {
+
+    color: #dbeafe;
+
+    font-size: 17px;
+}
+
+
+.big-value {
+
+    font-size: 21px;
+
+    font-weight: 700;
+
+    color: var(--primary-light);
+}
+
+
+/* Roots */
+
+.roots-box {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 13px 15px;
+
+    border-radius: 11px;
+
+    background:
+        rgba(96,165,250,0.025);
+
+    border:
+        1px solid
+        rgba(96,165,250,0.07);
+
+    margin-bottom: 12px;
+}
+
+
+.roots-result {
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #c9d8e8;
+
+    text-align: right;
+}
+
+
+/* Vertex */
+
+.vertex-box {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 13px 15px;
+
+    border-radius: 11px;
+
+    background:
+        rgba(96,165,250,0.025);
+
+    border:
+        1px solid
+        rgba(96,165,250,0.07);
+
+    margin-bottom: 12px;
+}
+
+
+.vertex-main {
+
+    min-width: 170px;
+}
+
+
+.vertex-values {
+
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    justify-content: flex-end;
+
+    gap: 18px;
+}
+
+
+.vertex-values div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+
+.vertex-values span {
+
+    color: #71869d;
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.7px;
+}
+
+
+.vertex-values strong {
+
+    color: #c8d8e8;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+
+/* Parabola */
+
+.parabola-box {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 13px 15px;
+
+    border-radius: 11px;
+
+    background:
+        rgba(96,165,250,0.035);
+
+    border:
+        1px solid
+        rgba(96,165,250,0.08);
+
+    margin-bottom: 12px;
+}
+
+
+.parabola-icon {
+
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background:
+        rgba(96,165,250,0.08);
+
+    color: var(--primary-light);
+
+    font-size: 24px;
+
+    font-weight: 600;
+}
+
+
+.parabola-box h3 {
+
+    font-size: 16px;
+
+    color: #dbeafe;
+}
+
+
+.parabola-box p {
+
+    margin-top: 3px;
+
+    color: #7f95ad;
+
+    font-size: 11px;
+}
+
+
+/* Analysis */
+
+.analysis-text {
+
+    color: #8fa3b8;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    padding-top: 2px;
+}
+
+
+.analysis-text strong {
+
+    color: #c8d8e8;
+}
+
+
+/* Graph */
+
+.graph-card {
+
+    padding-bottom: 18px;
+}
+
+
+.graph-container {
+
+    width: 100%;
+
+    height: 400px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    background:
+        #071321;
+
+    border:
+        1px solid
+        rgba(96,165,250,0.08);
+}
+
+
+#graphCanvas {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+}
+
+
+/* Footer */
+
+footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 15px 4px;
+
+    color: #50657b;
+
+    font-size: 10px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .container {
+
+        width:
+            calc(100% - 22px);
+
+        padding-top: 25px;
+    }
+
+
+    .header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+
+    .formula-header {
+
+        display: none;
+    }
+
+
+    .header h1 {
+
+        font-size: 21px;
+    }
+
+
+    .card {
+
+        padding: 18px;
+
+        border-radius: 14px;
+    }
+
+
+    .input-wrapper {
+
+        flex-wrap: wrap;
+    }
+
+
+    #functionInput {
+
+        flex-basis: 100%;
+
+        width: 100%;
+
+        padding: 7px 0;
+    }
+
+
+    #analyzeBtn {
+
+        width: 100%;
+    }
+
+
+    .coefficient-line {
+
+        gap: 10px 16px;
+    }
+
+
+    .important-row {
+
+        align-items: flex-end;
+    }
+
+
+    .roots-box {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .roots-result {
+
+        width: 100%;
+
+        text-align: left;
+    }
+
+
+    .vertex-box {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .vertex-values {
+
+        width: 100%;
+
+        justify-content: flex-start;
+
+        gap: 14px;
+    }
+
+
+    .graph-container {
+
+        height: 300px;
+    }
+
+
+    footer {
+
+        flex-direction: column;
+
+        gap: 6px;
+    }
+}

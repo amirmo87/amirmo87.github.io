@@ -1,0 +1,465 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Space Grotesk", sans-serif;
+    background: #07111f;
+    color: #eaf1ff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.math-background {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.math-background span {
+    position: absolute;
+    color: rgba(109, 168, 255, 0.035);
+    font-family: "DM Mono", monospace;
+    font-size: 70px;
+}
+
+.math-background span:nth-child(1) {
+    top: 10%;
+    left: 8%;
+}
+
+.math-background span:nth-child(2) {
+    top: 35%;
+    left: 88%;
+}
+
+.math-background span:nth-child(3) {
+    top: 75%;
+    left: 10%;
+}
+
+.math-background span:nth-child(4) {
+    top: 15%;
+    left: 72%;
+}
+
+.math-background span:nth-child(5) {
+    top: 65%;
+    left: 82%;
+}
+
+.math-background span:nth-child(6) {
+    top: 82%;
+    left: 45%;
+}
+
+.math-background span:nth-child(7) {
+    top: 45%;
+    left: 4%;
+}
+
+.math-background span:nth-child(8) {
+    top: 55%;
+    left: 60%;
+}
+
+.math-background span:nth-child(9) {
+    top: 5%;
+    left: 42%;
+}
+
+.math-background span:nth-child(10) {
+    top: 90%;
+    left: 75%;
+}
+
+.math-background span:nth-child(11) {
+    top: 25%;
+    left: 25%;
+}
+
+.math-background span:nth-child(12) {
+    top: 70%;
+    left: 30%;
+}
+
+
+.navbar {
+    width: min(1180px, 92%);
+    margin: auto;
+    padding: 28px 0;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.nav-logo {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.nav-status {
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    color: #8fa5c5;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #6da8ff;
+    box-shadow: 0 0 12px #6da8ff;
+}
+
+
+main {
+    width: min(1180px, 92%);
+    margin: auto;
+}
+
+
+.hero {
+    padding: 90px 0 60px;
+    max-width: 850px;
+}
+
+.small-label {
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #6da8ff;
+}
+
+.hero h1 {
+    margin-top: 15px;
+    font-size: clamp(45px, 7vw, 82px);
+    line-height: 0.95;
+    letter-spacing: -4px;
+}
+
+.hero h1 span {
+    color: #6da8ff;
+}
+
+.hero p {
+    margin-top: 25px;
+    color: #8fa5c5;
+    font-size: 17px;
+    max-width: 650px;
+    line-height: 1.7;
+}
+
+
+.analyzer-card {
+    background: rgba(11, 24, 42, 0.85);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 18px;
+    padding: 35px;
+    backdrop-filter: blur(10px);
+}
+
+.section-title h2 {
+    margin-top: 7px;
+    font-size: 30px;
+}
+
+
+.function-input-wrapper {
+    margin-top: 28px;
+
+    display: flex;
+    align-items: center;
+
+    background: #07111f;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+
+    padding: 0 20px;
+}
+
+.fx-label {
+    font-family: "DM Mono", monospace;
+    color: #6da8ff;
+    white-space: nowrap;
+}
+
+.function-input-wrapper input {
+    width: 100%;
+    padding: 19px 15px;
+
+    background: transparent;
+    border: none;
+    outline: none;
+
+    color: #eaf1ff;
+    font-family: "DM Mono", monospace;
+    font-size: 18px;
+}
+
+
+.math-keyboard {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.math-keyboard button {
+    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.025);
+    color: #b9c9e0;
+
+    padding: 11px;
+    border-radius: 8px;
+
+    font-family: "DM Mono", monospace;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.math-keyboard button:hover {
+    background: rgba(109,168,255,0.1);
+    color: #6da8ff;
+    border-color: rgba(109,168,255,0.3);
+}
+
+
+.calculate-btn {
+    width: 100%;
+    margin-top: 20px;
+
+    border: none;
+    border-radius: 10px;
+
+    padding: 17px;
+
+    background: #6da8ff;
+    color: #07111f;
+
+    font-family: "DM Mono", monospace;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+
+    transition: 0.2s;
+}
+
+.calculate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(109,168,255,0.15);
+}
+
+
+.results-section {
+    margin-top: 80px;
+    padding-bottom: 80px;
+}
+
+.results-grid {
+    margin-top: 25px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.result-card {
+    min-height: 150px;
+
+    background: rgba(11, 24, 42, 0.78);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 14px;
+
+    padding: 22px;
+}
+
+.result-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.result-label {
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: #7f94b2;
+}
+
+.result-symbol {
+    color: #6da8ff;
+    font-family: "DM Mono", monospace;
+}
+
+.result-value {
+    margin-top: 25px;
+    font-family: "DM Mono", monospace;
+    font-size: 21px;
+    color: #eaf1ff;
+    overflow-wrap: anywhere;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+/* FRACTIONS */
+
+.fraction {
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 1;
+    margin: 0 3px;
+}
+
+.fraction .numerator {
+    padding: 0 4px 3px;
+    border-bottom: 1px solid #eaf1ff;
+}
+
+.fraction .denominator {
+    padding: 3px 4px 0;
+}
+
+
+/* GRAPH */
+
+.graph-section {
+    margin-top: 45px;
+}
+
+.graph-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 18px;
+}
+
+.graph-header h2 {
+    margin-top: 5px;
+    font-size: 30px;
+}
+
+.function-display {
+    font-family: "DM Mono", monospace;
+    color: #6da8ff;
+    font-size: 16px;
+    max-width: 55%;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+.graph-card {
+    width: 100%;
+    background: rgba(7, 16, 29, 0.72);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 15px;
+    padding: 12px;
+    overflow: hidden;
+}
+
+#functionCanvas {
+    display: block;
+    width: 100%;
+    height: 430px;
+    border-radius: 10px;
+}
+
+
+footer {
+    width: min(1180px, 92%);
+    margin: auto;
+
+    padding: 30px 0;
+
+    border-top: 1px solid rgba(255,255,255,0.06);
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #61738f;
+
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+
+@media (max-width: 800px) {
+
+    .results-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #functionCanvas {
+        height: 380px;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .hero {
+        padding-top: 60px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .analyzer-card {
+        padding: 22px;
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .graph-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .function-display {
+        max-width: 100%;
+        text-align: left;
+    }
+
+    #functionCanvas {
+        height: 320px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

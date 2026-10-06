@@ -1,0 +1,645 @@
+/* =========================================
+   AMIRMO | MATHEMATICS
+   Main Homepage
+   ========================================= */
+
+
+/* ---------- Reset ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #07111f;
+    color: #ffffff;
+    font-family: "Space Grotesk", sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* ---------- Mathematical Background ---------- */
+
+.math-background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.math-background span {
+    position: absolute;
+    color: rgba(109, 168, 255, 0.045);
+    font-family: "DM Mono", monospace;
+    font-size: 90px;
+    font-weight: 400;
+}
+
+
+/* Individual positions */
+
+.math-background span:nth-child(1) {
+    top: 8%;
+    left: 7%;
+}
+
+.math-background span:nth-child(2) {
+    top: 25%;
+    left: 82%;
+}
+
+.math-background span:nth-child(3) {
+    top: 65%;
+    left: 8%;
+}
+
+.math-background span:nth-child(4) {
+    top: 76%;
+    left: 78%;
+}
+
+.math-background span:nth-child(5) {
+    top: 43%;
+    left: 48%;
+}
+
+.math-background span:nth-child(6) {
+    top: 12%;
+    left: 54%;
+}
+
+.math-background span:nth-child(7) {
+    top: 84%;
+    left: 38%;
+}
+
+.math-background span:nth-child(8) {
+    top: 48%;
+    left: 88%;
+}
+
+.math-background span:nth-child(9) {
+    top: 60%;
+    left: 48%;
+}
+
+.math-background span:nth-child(10) {
+    top: 32%;
+    left: 20%;
+}
+
+.math-background span:nth-child(11) {
+    top: 88%;
+    left: 15%;
+}
+
+.math-background span:nth-child(12) {
+    top: 6%;
+    left: 90%;
+}
+
+
+/* ---------- Navigation ---------- */
+
+.navbar {
+    position: relative;
+    z-index: 10;
+
+    height: 82px;
+
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(7, 17, 31, 0.82);
+
+    backdrop-filter: blur(12px);
+}
+
+
+/* Logo */
+
+.logo {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.logo-main {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo-sub {
+    color: #6da8ff;
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+
+/* Navigation links */
+
+.navbar nav {
+    display: flex;
+    gap: 35px;
+}
+
+.navbar nav a {
+    color: rgba(255, 255, 255, 0.58);
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+
+    transition: 0.25s ease;
+}
+
+.navbar nav a:hover {
+    color: #6da8ff;
+}
+
+
+/* ---------- Hero ---------- */
+
+.hero {
+    position: relative;
+    z-index: 1;
+
+    min-height: 650px;
+
+    padding: 110px 7% 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 80px;
+}
+
+
+/* Hero content */
+
+.hero-content {
+    max-width: 700px;
+}
+
+.eyebrow {
+    color: #6da8ff;
+    font-family: "DM Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 6vw, 88px);
+    line-height: 0.98;
+    letter-spacing: -3px;
+    font-weight: 600;
+}
+
+.hero h1 span {
+    color: #6da8ff;
+}
+
+.hero-description {
+    max-width: 550px;
+
+    margin-top: 30px;
+
+    color: rgba(255, 255, 255, 0.56);
+
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* Hero button */
+
+.hero-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+
+    margin-top: 40px;
+
+    padding: 13px 18px;
+
+    border: 1px solid rgba(109, 168, 255, 0.45);
+
+    color: #ffffff;
+
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+
+    transition: 0.25s ease;
+}
+
+.hero-button span {
+    color: #6da8ff;
+    font-size: 16px;
+}
+
+.hero-button:hover {
+    background: rgba(109, 168, 255, 0.08);
+    border-color: #6da8ff;
+    transform: translateY(-2px);
+}
+
+
+/* Hero equations */
+
+.hero-equation {
+    min-width: 300px;
+
+    padding: 35px;
+
+    border-left: 1px solid rgba(109, 168, 255, 0.25);
+
+    font-family: "DM Mono", monospace;
+}
+
+.equation-line {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 28px;
+}
+
+.equation-small {
+    color: rgba(109, 168, 255, 0.7);
+    font-size: 13px;
+    margin-top: 13px;
+}
+
+
+/* ---------- Tools Section ---------- */
+
+.tools-section {
+    position: relative;
+    z-index: 1;
+
+    padding: 110px 7% 120px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+/* Section heading */
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    margin-bottom: 50px;
+}
+
+.section-label {
+    color: #6da8ff;
+
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+
+    margin-bottom: 13px;
+}
+
+.section-heading h2,
+.about-section h2 {
+    font-size: clamp(32px, 4vw, 55px);
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -2px;
+}
+
+.section-heading h2 span,
+.about-section h2 span {
+    color: #6da8ff;
+}
+
+.section-description {
+    color: rgba(255, 255, 255, 0.38);
+
+    font-family: "DM Mono", monospace;
+    font-size: 11px;
+}
+
+
+/* ---------- Tools Grid ---------- */
+
+.tools-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 14px;
+}
+
+
+/* ---------- Tool Card ---------- */
+
+.tool-card {
+    position: relative;
+
+    min-height: 245px;
+
+    padding: 25px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    background: rgba(255, 255, 255, 0.018);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+}
+
+
+.tool-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(109, 168, 255, 0.42);
+
+    background: rgba(109, 168, 255, 0.035);
+}
+
+
+/* Card number */
+
+.tool-number {
+    position: absolute;
+
+    top: 22px;
+    right: 24px;
+
+    color: rgba(255, 255, 255, 0.25);
+
+    font-family: "DM Mono", monospace;
+    font-size: 10px;
+}
+
+
+/* Mathematical symbol */
+
+.tool-symbol {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+
+    height: 60px;
+
+    margin-bottom: 28px;
+
+    color: #6da8ff;
+
+    font-family: "DM Mono", monospace;
+    font-size: 28px;
+}
+
+.tool-symbol span {
+    display: block;
+}
+
+
+/* Tool text */
+
+.tool-content {
+    max-width: 310px;
+}
+
+.tool-content h3 {
+    font-size: 20px;
+    font-weight: 500;
+
+    margin-bottom: 10px;
+}
+
+.tool-content p {
+    color: rgba(255, 255, 255, 0.45);
+
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+
+/* Arrow */
+
+.tool-arrow {
+    position: absolute;
+
+    right: 22px;
+    bottom: 20px;
+
+    color: rgba(109, 168, 255, 0.7);
+
+    font-size: 20px;
+
+    transition: 0.25s ease;
+}
+
+.tool-card:hover .tool-arrow {
+    transform: translate(3px, -3px);
+    color: #6da8ff;
+}
+
+
+/* ---------- Coming Soon ---------- */
+
+.coming-soon {
+    cursor: default;
+}
+
+.coming-soon:hover {
+    transform: none;
+}
+
+.coming-label {
+    position: absolute;
+
+    right: 22px;
+    bottom: 22px;
+
+    color: rgba(255, 255, 255, 0.25);
+
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+
+/* ---------- About ---------- */
+
+.about-section {
+    position: relative;
+    z-index: 1;
+
+    padding: 100px 7% 130px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.about-section h2 {
+    max-width: 750px;
+}
+
+.about-text {
+    max-width: 650px;
+
+    margin-top: 30px;
+
+    color: rgba(255, 255, 255, 0.48);
+
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+
+/* ---------- Footer ---------- */
+
+footer {
+    position: relative;
+    z-index: 1;
+
+    min-height: 80px;
+
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+    color: rgba(255, 255, 255, 0.32);
+
+    font-family: "DM Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.footer-logo {
+    color: #ffffff;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.footer-center {
+    color: rgba(109, 168, 255, 0.45);
+}
+
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1000px) {
+
+    .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        min-height: auto;
+        padding-top: 90px;
+        padding-bottom: 90px;
+    }
+
+    .hero-equation {
+        display: none;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .navbar {
+        height: 70px;
+        padding: 0 6%;
+    }
+
+    .logo-sub {
+        display: none;
+    }
+
+    .navbar nav {
+        gap: 18px;
+    }
+
+    .navbar nav a {
+        font-size: 9px;
+    }
+
+
+    .hero {
+        padding: 75px 6% 85px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+        letter-spacing: -2px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+
+    .tools-section,
+    .about-section {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+
+    .section-heading {
+        display: block;
+    }
+
+    .section-description {
+        margin-top: 20px;
+    }
+
+
+    .tools-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .tool-card {
+        min-height: 220px;
+    }
+
+
+    footer {
+        padding: 25px 6%;
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+    .footer-center {
+        order: 3;
+    }
+
+}

@@ -1,0 +1,804 @@
+/* ======================================================
+   GLOBAL
+   ====================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    background: #0f0f1e;
+    color: #e0e0e0;
+
+    overflow-x: hidden;
+}
+
+
+/* ======================================================
+   BACKGROUND GRID
+   ====================================================== */
+
+.background-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    background-image:
+        linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
+    background-size: 50px 50px;
+}
+
+
+/* ======================================================
+   CONTAINER
+   ====================================================== */
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+
+/* ======================================================
+   HEADER
+   ====================================================== */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 60px;
+
+    animation: slideDown 0.6s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo-symbol {
+    font-size: 48px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00d4ff, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    min-width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    background: linear-gradient(135deg, #ffffff, #d0d0d0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.logo p {
+    font-size: 14px;
+    color: #888;
+}
+
+.formula-header {
+    font-size: 20px;
+    color: #888;
+}
+
+
+/* ======================================================
+   CARDS
+   ====================================================== */
+
+.card {
+    background: rgba(30, 30, 45, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(30, 30, 45, 0.8);
+}
+
+.input-card,
+.compact-card {
+    animation: slideUp 0.6s ease-out 0.1s both;
+}
+
+.analysis-card {
+    animation: slideUp 0.6s ease-out 0.2s both;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ======================================================
+   SECTION TITLES
+   ====================================================== */
+
+.section-title {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.section-title .number {
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00d4ff, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    min-width: 50px;
+}
+
+.section-title h2 {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.section-title p {
+    color: #888;
+    font-size: 14px;
+}
+
+.mini-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.mini-heading .number {
+    font-size: 24px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00d4ff, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    min-width: 35px;
+}
+
+.small-number {
+    font-size: 20px !important;
+}
+
+.mini-heading h2 {
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+
+.mini-heading p {
+    color: #888;
+    font-size: 13px;
+}
+
+
+/* ======================================================
+   INPUT WRAPPER
+   ====================================================== */
+
+.input-wrapper {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input-label {
+    font-size: 16px;
+    color: #888;
+    font-weight: 500;
+    min-width: 60px;
+}
+
+.input-wrapper input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 12px 16px;
+    color: #fff;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    font-family: 'Courier New', monospace;
+}
+
+.input-wrapper input:focus {
+    outline: none;
+    border-color: #00d4ff;
+    background: rgba(0, 212, 255, 0.1);
+    box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+}
+
+.input-wrapper input::placeholder {
+    color: #666;
+}
+
+.input-wrapper button {
+    background: linear-gradient(135deg, #00d4ff, #7c3aed);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    min-height: 42px;
+}
+
+.input-wrapper button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+}
+
+.input-wrapper button:active {
+    transform: translateY(0);
+}
+
+.input-wrapper button span {
+    font-size: 16px;
+}
+
+
+/* ======================================================
+   MATH KEYBOARD
+   ====================================================== */
+
+.math-keyboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 8px;
+    margin-bottom: 20px;
+    padding: 16px;
+    background: rgba(124, 58, 237, 0.1);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    border-radius: 8px;
+}
+
+.math-key {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(124, 58, 237, 0.5);
+    border-radius: 6px;
+    padding: 10px 8px;
+    color: #00d4ff;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+}
+
+.math-key:hover {
+    background: rgba(124, 58, 237, 0.3);
+    border-color: #00d4ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+}
+
+.math-key:active {
+    transform: translateY(0);
+}
+
+
+/* ======================================================
+   EXAMPLES
+   ====================================================== */
+
+.examples {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.examples span {
+    color: #888;
+    font-size: 13px;
+}
+
+.example-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 8px 16px;
+    color: #ccc;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Courier New', monospace;
+}
+
+.example-btn:hover {
+    border-color: #00d4ff;
+    background: rgba(0, 212, 255, 0.1);
+    color: #00d4ff;
+}
+
+
+/* ======================================================
+   ERROR MESSAGE
+   ====================================================== */
+
+.error-message {
+    background: rgba(255, 59, 48, 0.15);
+    border: 1px solid rgba(255, 59, 48, 0.3);
+    border-radius: 8px;
+    padding: 16px;
+    color: #ff9999;
+    font-size: 14px;
+    display: none;
+    margin-top: 20px;
+}
+
+.error-message.show {
+    display: block;
+}
+
+
+/* ======================================================
+   COEFFICIENT LINE
+   ====================================================== */
+
+.coefficient-line {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    font-size: 14px;
+}
+
+.coefficient-line span {
+    color: #aaa;
+}
+
+.coefficient-line strong {
+    color: #00d4ff;
+    font-weight: 700;
+}
+
+
+/* ======================================================
+   IMPORTANT ROW (DELTA)
+   ====================================================== */
+
+.important-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    background: rgba(0, 212, 255, 0.05);
+    border-left: 4px solid #00d4ff;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    gap: 20px;
+}
+
+.important-row .label {
+    display: block;
+    font-size: 12px;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.important-row .formula {
+    font-size: 16px;
+    color: #fff;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.big-value {
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00d4ff, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+
+/* ======================================================
+   ROWS (ROOTS, VIETA)
+   ====================================================== */
+
+.roots-row,
+.vieta-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.roots-row > div,
+.vieta-row > div {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.roots-row .label,
+.vieta-row .label {
+    display: block;
+    font-size: 12px;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.roots-row .formula,
+.vieta-row .formula {
+    font-size: 18px;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+
+/* ======================================================
+   FORMULA DISPLAY
+   ====================================================== */
+
+.function-display {
+    font-size: 24px;
+    color: #fff;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    text-align: center;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ======================================================
+   ANALYSIS TEXT
+   ====================================================== */
+
+.analysis-text {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #7c3aed;
+    color: #ccc;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 24px;
+}
+
+.analysis-text strong {
+    color: #00d4ff;
+}
+
+
+/* ======================================================
+   RECURSIVE FORMULA BOX
+   ====================================================== */
+
+.recursive-formula-box {
+    background: rgba(124, 58, 237, 0.1);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    border-left: 4px solid #7c3aed;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 30px;
+}
+
+.formula-title {
+    font-size: 12px;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.formula-content {
+    font-size: 16px;
+    color: #fff;
+    line-height: 2;
+}
+
+
+/* ======================================================
+   N INPUT SECTION
+   ====================================================== */
+
+.n-input-section {
+    margin-bottom: 30px;
+}
+
+.n-input-group label {
+    display: block;
+    font-size: 12px;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.input-with-button {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.input-with-button input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 12px;
+    color: #fff;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.input-with-button input:focus {
+    outline: none;
+    border-color: #7c3aed;
+    background: rgba(124, 58, 237, 0.1);
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+.input-with-button input::placeholder {
+    color: #666;
+}
+
+.calculate-n-button {
+    background: linear-gradient(135deg, #7c3aed, #00d4ff);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    min-height: 42px;
+}
+
+.calculate-n-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
+}
+
+.calculate-n-button:active {
+    transform: translateY(0);
+}
+
+.calculate-n-button span {
+    font-size: 16px;
+}
+
+
+/* ======================================================
+   RESULT BOX
+   ====================================================== */
+
+.result-box {
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-left: 4px solid #00d4ff;
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.result-label {
+    font-size: 12px;
+    color: #aaa;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+
+/* ======================================================
+   STEP BY STEP
+   ====================================================== */
+
+.step-by-step {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    font-size: 13px;
+    color: #aaa;
+    margin-top: 20px;
+    font-family: 'Courier New', monospace;
+    line-height: 1.8;
+    display: none;
+}
+
+.step-by-step.show {
+    display: block;
+}
+
+.step-by-step strong {
+    color: #00d4ff;
+}
+
+
+/* ======================================================
+   FOOTER
+   ====================================================== */
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+    font-size: 13px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+
+/* ======================================================
+   RESPONSIVE
+   ====================================================== */
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 40px;
+        gap: 20px;
+    }
+
+    .logo h1 {
+        font-size: 22px;
+    }
+
+    .section-title .number {
+        font-size: 24px;
+    }
+
+    .input-wrapper {
+        flex-direction: column;
+    }
+
+    .math-keyboard {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .roots-row,
+    .vieta-row {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 20px 16px;
+    }
+
+    .card {
+        padding: 24px;
+    }
+
+    .important-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .big-value {
+        font-size: 24px;
+    }
+
+    .logo {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .logo-symbol {
+        font-size: 36px;
+    }
+
+    .logo h1 {
+        font-size: 18px;
+    }
+
+    .input-wrapper {
+        flex-direction: column;
+    }
+
+    .input-label {
+        min-width: auto;
+    }
+
+    .math-keyboard {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .math-key {
+        font-size: 11px;
+        padding: 8px 4px;
+    }
+}

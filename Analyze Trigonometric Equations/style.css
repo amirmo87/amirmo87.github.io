@@ -1,0 +1,950 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+
+:root {
+
+    --background: #07111f;
+    --panel: #0b192b;
+    --panel-light: #0e1d31;
+
+    --border: rgba(109, 168, 255, 0.17);
+
+    --text: #edf4ff;
+    --muted: #7f94af;
+
+    --blue: #6da8ff;
+    --blue-light: #9bc5ff;
+
+    --danger: #ff7d8d;
+
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% -20%,
+            rgba(76, 128, 200, 0.12),
+            transparent 42%
+        ),
+        var(--background);
+
+    color: var(--text);
+
+    font-family: "Space Grotesk", sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.math-background {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    opacity: 0.035;
+
+    z-index: 0;
+}
+
+
+.math-background span {
+
+    position: absolute;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 100px;
+
+    color: var(--blue);
+}
+
+
+.math-background span:nth-child(1) {
+    top: 8%;
+    left: 5%;
+}
+
+
+.math-background span:nth-child(2) {
+    top: 23%;
+    right: 7%;
+}
+
+
+.math-background span:nth-child(3) {
+    top: 52%;
+    left: 8%;
+}
+
+
+.math-background span:nth-child(4) {
+    bottom: 12%;
+    right: 8%;
+}
+
+
+.math-background span:nth-child(5) {
+    top: 70%;
+    left: 48%;
+}
+
+
+.math-background span:nth-child(6) {
+    top: 12%;
+    left: 48%;
+}
+
+
+.math-background span:nth-child(7) {
+    bottom: 8%;
+    left: 18%;
+}
+
+
+.math-background span:nth-child(8) {
+    top: 42%;
+    right: 17%;
+}
+
+
+.math-background span:nth-child(9) {
+    bottom: 28%;
+    right: 45%;
+}
+
+
+.math-background span:nth-child(10) {
+    top: 78%;
+    right: 28%;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.topbar {
+
+    position: relative;
+
+    z-index: 2;
+
+    height: 82px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 6vw;
+
+    border-bottom: 1px solid var(--border);
+
+    background: rgba(7, 17, 31, 0.72);
+
+    backdrop-filter: blur(15px);
+}
+
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+
+.brand-main {
+
+    font-size: 23px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.brand-sub {
+
+    padding-left: 18px;
+
+    border-left: 1px solid var(--border);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 1.7px;
+
+    color: var(--muted);
+}
+
+
+.header-symbol {
+
+    display: flex;
+
+    gap: 22px;
+
+    color: var(--muted);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 13px;
+}
+
+
+.header-symbol span:first-child {
+
+    color: var(--blue-light);
+
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.container {
+
+    position: relative;
+
+    z-index: 1;
+
+    width: min(1200px, 91%);
+
+    margin: auto;
+
+    padding-bottom: 100px;
+
+}
+
+
+.hero {
+
+    padding: 85px 0 60px;
+
+}
+
+
+.hero-label {
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: var(--blue);
+
+    margin-bottom: 18px;
+
+}
+
+
+.hero h1 {
+
+    max-width: 900px;
+
+    font-size: clamp(42px, 6vw, 76px);
+
+    line-height: 0.98;
+
+    letter-spacing: -3px;
+
+    font-weight: 600;
+
+}
+
+
+.hero h1 span {
+
+    display: block;
+
+    color: var(--blue);
+
+}
+
+
+.hero p {
+
+    max-width: 700px;
+
+    margin-top: 27px;
+
+    color: var(--muted);
+
+    font-size: 16px;
+
+    line-height: 1.7;
+
+}
+
+
+/* =========================================
+   SECTION TITLE
+========================================= */
+
+.section-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 16px;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 12px;
+
+    letter-spacing: 1.7px;
+
+    color: var(--muted);
+
+}
+
+
+.number {
+
+    color: var(--blue);
+
+}
+
+
+/* =========================================
+   INPUT
+========================================= */
+
+.input-section {
+
+    margin-bottom: 70px;
+
+}
+
+
+.equation-box {
+
+    padding: 28px;
+
+    border: 1px solid var(--border);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(109, 168, 255, 0.035),
+            transparent
+        ),
+        var(--panel);
+
+    border-radius: 12px;
+
+}
+
+
+.function-label {
+
+    margin-bottom: 12px;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    color: var(--muted);
+
+}
+
+
+/* =========================================
+   MATH INPUT
+========================================= */
+
+math-field {
+
+    display: block;
+
+    width: 100%;
+
+    min-height: 78px;
+
+    padding: 18px 20px;
+
+    border: 1px solid rgba(109, 168, 255, 0.22);
+
+    border-radius: 8px;
+
+    background: #081525;
+
+    color: var(--text);
+
+    font-size: 30px;
+
+    --caret-color: var(--blue);
+
+    --selection-background-color:
+        rgba(109, 168, 255, 0.2);
+
+}
+
+
+math-field:focus {
+
+    outline: none;
+
+    border-color:
+        rgba(109, 168, 255, 0.65);
+
+    box-shadow:
+        0 0 0 3px rgba(109, 168, 255, 0.05);
+
+}
+
+
+.input-hint {
+
+    margin-top: 13px;
+
+    color: var(--muted);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 11px;
+
+}
+
+
+.input-hint span {
+
+    color: var(--blue-light);
+
+}
+
+
+.analyze-button {
+
+    margin-top: 24px;
+
+    height: 48px;
+
+    padding: 0 22px;
+
+    border: 1px solid
+        rgba(109, 168, 255, 0.3);
+
+    border-radius: 6px;
+
+    background:
+        rgba(109, 168, 255, 0.08);
+
+    color: var(--blue-light);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 1.2px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+}
+
+
+.analyze-button span {
+
+    margin-left: 15px;
+
+    font-size: 18px;
+
+}
+
+
+.analyze-button:hover {
+
+    background:
+        rgba(109, 168, 255, 0.14);
+
+    border-color:
+        rgba(109, 168, 255, 0.55);
+
+    transform: translateY(-1px);
+
+}
+
+
+.error-message {
+
+    min-height: 20px;
+
+    margin-top: 12px;
+
+    color: var(--danger);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 11px;
+
+}
+
+
+/* =========================================
+   RESULTS
+========================================= */
+
+.result-section {
+
+    margin-bottom: 70px;
+
+}
+
+
+.result-box {
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: var(--panel);
+
+    overflow: hidden;
+
+}
+
+
+.result-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 23px 25px;
+
+    border-bottom: 1px solid var(--border);
+
+}
+
+
+.result-title {
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 12px;
+
+    letter-spacing: 1.5px;
+
+    color: var(--blue-light);
+
+}
+
+
+.result-description {
+
+    margin-top: 7px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+.result-description span {
+
+    font-family: "DM Mono", monospace;
+
+    color: var(--text);
+
+}
+
+
+.solution-count {
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 25px;
+
+    color: var(--blue);
+
+}
+
+
+/* =========================================
+   UNIT CIRCLE
+========================================= */
+
+.circle-area {
+
+    min-height: 620px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 55px;
+
+    padding: 30px;
+
+}
+
+
+#unitCircleCanvas {
+
+    width: min(600px, 100%);
+
+    height: auto;
+
+}
+
+
+.circle-side-info {
+
+    width: 270px;
+
+}
+
+
+.info-label {
+
+    margin-bottom: 16px;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    color: var(--muted);
+
+}
+
+
+.solution-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+}
+
+
+.solution-item {
+
+    padding: 12px 14px;
+
+    border-left: 2px solid var(--blue);
+
+    background:
+        rgba(109, 168, 255, 0.04);
+
+    font-size: 18px;
+
+}
+
+
+.solution-item .katex {
+
+    font-size: 1.1em;
+
+}
+
+
+/* =========================================
+   GRAPH
+========================================= */
+
+.graph-container {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    padding: 25px;
+
+    background: #081525;
+
+}
+
+
+#graphCanvas {
+
+    display: block;
+
+    width: 100%;
+
+    min-width: 900px;
+
+    height: auto;
+
+    border:
+        1px solid rgba(109, 168, 255, 0.08);
+
+    background: #07111f;
+
+}
+
+
+.intersection-list {
+
+    padding: 20px 25px;
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 13px;
+
+    color: var(--muted);
+
+}
+
+
+.intersection-item {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    margin: 5px 8px 5px 0;
+
+    padding: 10px 13px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 5px;
+
+    color: var(--text);
+
+}
+
+
+.intersection-item .katex {
+
+    font-size: 1em;
+
+}
+
+
+/* =========================================
+   GENERAL SOLUTION
+========================================= */
+
+.general-box {
+
+    padding: 42px;
+
+}
+
+
+.period-title,
+.general-title {
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 1.6px;
+
+    color: var(--muted);
+
+    margin-bottom: 20px;
+
+}
+
+
+.math-result {
+
+    min-height: 55px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    color: var(--text);
+
+    font-size: 27px;
+
+}
+
+
+.general-result {
+
+    color: var(--blue-light);
+
+    font-size: 30px;
+
+}
+
+
+.math-result .katex {
+
+    font-size: 1.15em;
+
+}
+
+
+.divider {
+
+    height: 1px;
+
+    margin: 34px 0;
+
+    background: var(--border);
+
+}
+
+
+.general-note {
+
+    margin-top: 17px;
+
+    font-family: "DM Mono", monospace;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+}
+
+
+.k-symbol {
+
+    color: var(--blue-light);
+
+    font-size: 16px;
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    position: relative;
+
+    z-index: 1;
+
+    height: 75px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 6vw;
+
+    border-top: 1px solid var(--border);
+
+    color: var(--muted);
+
+    font-family: "DM Mono", monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 1.3px;
+
+}
+
+
+footer div {
+
+    color: var(--text);
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 850px) {
+
+    .brand-sub,
+    .header-symbol {
+        display: none;
+    }
+
+    .circle-area {
+        flex-direction: column;
+    }
+
+    .circle-side-info {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .hero {
+        padding-top: 60px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+        letter-spacing: -2px;
+    }
+
+    math-field {
+        font-size: 23px;
+    }
+
+    .equation-box {
+        padding: 18px;
+    }
+
+    .general-box {
+        padding: 25px;
+    }
+
+    .math-result {
+        font-size: 22px;
+    }
+
+}

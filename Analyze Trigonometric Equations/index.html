@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AMIRMO | Trigonometric Equation Analyzer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- MathLive -->
+    <script defer src="https://cdn.jsdelivr.net/npm/mathlive"></script>
+
+    <!-- math.js -->
+    <script src="https://unpkg.com/mathjs@15.2.0/lib/browser/math.js"></script>
+
+    <!-- KaTeX -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+
+    <script
+        defer
+        src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js">
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="math-background">
+        <span>π</span>
+        <span>sin</span>
+        <span>cos</span>
+        <span>∫</span>
+        <span>Σ</span>
+        <span>∞</span>
+        <span>√</span>
+        <span>θ</span>
+        <span>Δ</span>
+        <span>∂</span>
+    </div>
+
+    <header class="topbar">
+
+        <div class="brand">
+            <span class="brand-main">AMIRMO</span>
+
+            <span class="brand-sub">
+                MATHEMATICS / TRIGONOMETRY
+            </span>
+        </div>
+
+        <div class="header-symbol">
+            <span>sin</span>
+            <span>cos</span>
+            <span>tan</span>
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <section class="hero">
+
+            <div class="hero-label">
+                TRIGONOMETRIC EQUATION ANALYZER
+            </div>
+
+            <h1>
+                Analyze
+                <span>Trigonometric Equations</span>
+            </h1>
+
+            <p>
+                Enter a trigonometric equation and explore its solutions
+                through the unit circle, function intersections and
+                general mathematical form.
+            </p>
+
+        </section>
+
+
+        <!-- INPUT -->
+
+        <section class="input-section">
+
+            <div class="section-title">
+                <span class="number">01</span>
+                ENTER EQUATION
+            </div>
+
+            <div class="equation-box">
+
+                <div class="function-label">
+                    EQUATION
+                </div>
+
+                <math-field
+                    id="equationInput"
+                    virtual-keyboard-mode="onfocus"
+                    smart-mode="true"
+                    placeholder="\sin(x)=\cos(x)">
+                </math-field>
+
+                <div class="input-hint">
+                    Try:
+                    <span>sin(x) = cos(x)</span>
+                    &nbsp; or &nbsp;
+                    <span>sin(x) = 1/2</span>
+                </div>
+
+                <button
+                    id="analyzeBtn"
+                    class="analyze-button">
+
+                    ANALYZE EQUATION
+
+                    <span>→</span>
+
+                </button>
+
+            </div>
+
+            <div id="errorMessage"
+                 class="error-message">
+            </div>
+
+        </section>
+
+
+        <!-- UNIT CIRCLE -->
+
+        <section class="result-section">
+
+            <div class="section-title">
+                <span class="number">02</span>
+                SOLUTIONS ON UNIT CIRCLE
+            </div>
+
+            <div class="result-box">
+
+                <div class="result-header">
+
+                    <div>
+
+                        <div class="result-title">
+                            UNIT CIRCLE
+                        </div>
+
+                        <div class="result-description">
+                            Solutions in one period:
+                            <span id="periodRange">
+                                0 ≤ x &lt; 2π
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <div
+                        id="solutionCount"
+                        class="solution-count">
+                        —
+                    </div>
+
+                </div>
+
+
+                <div class="circle-area">
+
+                    <canvas
+                        id="unitCircleCanvas"
+                        width="600"
+                        height="600">
+                    </canvas>
+
+                    <div class="circle-side-info">
+
+                        <div class="info-label">
+                            SOLUTIONS
+                        </div>
+
+                        <div
+                            id="circleSolutions"
+                            class="solution-list">
+
+                            Enter an equation to calculate
+                            the solutions.
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GRAPH -->
+
+        <section class="result-section">
+
+            <div class="section-title">
+                <span class="number">03</span>
+                FUNCTION INTERSECTIONS
+            </div>
+
+            <div class="result-box graph-box">
+
+                <div class="result-header">
+
+                    <div>
+
+                        <div class="result-title">
+                            GRAPH ANALYSIS
+                        </div>
+
+                        <div class="result-description">
+                            The two sides of the equation
+                            are plotted together.
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="graph-container">
+
+                    <canvas
+                        id="graphCanvas"
+                        width="1400"
+                        height="700">
+                    </canvas>
+
+                </div>
+
+                <div
+                    id="intersectionList"
+                    class="intersection-list">
+
+                    Enter an equation to calculate
+                    intersections.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GENERAL SOLUTION -->
+
+        <section class="result-section">
+
+            <div class="section-title">
+                <span class="number">04</span>
+                GENERAL SOLUTION
+            </div>
+
+            <div class="result-box general-box">
+
+                <div class="period-title">
+                    SOLUTIONS IN ONE PERIOD
+                </div>
+
+                <div
+                    id="periodSolutions"
+                    class="math-result">
+
+                    —
+
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="general-title">
+                    GENERAL FORM
+                </div>
+
+                <div
+                    id="generalSolutions"
+                    class="math-result general-result">
+
+                    —
+
+                </div>
+
+                <div class="general-note">
+
+                    where
+
+                    <span class="k-symbol">
+                        k ∈ ℤ
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div>
+            AMIRMO
+        </div>
+
+        <span>
+            MATHEMATICAL ANALYSIS SYSTEM
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

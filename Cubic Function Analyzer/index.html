@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AMIRMO | Cubic Function Analyzer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="math-background">
+        <span>∫</span>
+        <span>π</span>
+        <span>∑</span>
+        <span>∞</span>
+        <span>√</span>
+        <span>δ</span>
+        <span>∂</span>
+        <span>∇</span>
+        <span>λ</span>
+        <span>Δ</span>
+        <span>∫</span>
+        <span>f(x)</span>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-logo">AMIRMO</div>
+        <div class="nav-status">
+            <span class="status-dot"></span>
+            MATHEMATICAL ANALYSIS
+        </div>
+    </nav>
+
+    <main>
+
+        <section class="hero">
+            <span class="small-label">POLYNOMIAL ANALYSIS SYSTEM</span>
+
+            <h1>
+                Cubic Function
+                <span>Analyzer</span>
+            </h1>
+
+            <p>
+                Analyze cubic functions, extrema, inflection points,
+                slopes and real roots.
+            </p>
+        </section>
+
+
+        <section class="analyzer-card">
+
+            <div class="section-title">
+                <span class="small-label">INPUT FUNCTION</span>
+                <h2>Enter a cubic function</h2>
+            </div>
+
+            <div class="function-input-wrapper">
+
+                <span class="fx-label">f(x) =</span>
+
+                <input
+                    type="text"
+                    id="functionInput"
+                    placeholder="ax³ + bx² + cx + d"
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <div class="math-keyboard">
+
+                <button data-value="x³">x³</button>
+                <button data-value="x²">x²</button>
+                <button data-value="x">x</button>
+                <button data-value="+">+</button>
+                <button data-value="-">−</button>
+
+                <button data-value="(">(</button>
+                <button data-value=")">)</button>
+                <button data-value="1">1</button>
+                <button data-value="2">2</button>
+                <button data-value="3">3</button>
+
+                <button data-value="4">4</button>
+                <button data-value="5">5</button>
+                <button data-value="6">6</button>
+                <button data-value="7">7</button>
+                <button data-value="8">8</button>
+
+                <button data-value="9">9</button>
+                <button data-value="0">0</button>
+                <button data-value=".">.</button>
+                <button id="clearInput">C</button>
+                <button id="backspace">⌫</button>
+
+            </div>
+
+
+            <button id="calculateBtn" class="calculate-btn">
+                ANALYZE FUNCTION
+                <span>→</span>
+            </button>
+
+        </section>
+
+
+        <!-- RESULTS -->
+
+        <section id="resultsSection" class="results-section hidden">
+
+            <div class="section-title">
+                <span class="small-label">ANALYSIS RESULTS</span>
+                <h2>Mathematical properties</h2>
+            </div>
+
+
+            <div class="results-grid">
+
+                <!-- DELTA -->
+                <div class="result-card">
+
+                    <div class="result-top">
+                        <span class="result-label">DELTA</span>
+                        <span class="result-symbol">δ</span>
+                    </div>
+
+                    <div id="deltaResult" class="result-value"></div>
+
+                </div>
+
+
+                <!-- INFLECTION -->
+                <div class="result-card">
+
+                    <div class="result-top">
+                        <span class="result-label">INFLECTION POINT</span>
+                        <span class="result-symbol">Pi</span>
+                    </div>
+
+                    <div id="inflectionResult" class="result-value"></div>
+
+                </div>
+
+
+                <!-- SLOPE -->
+                <div class="result-card">
+
+                    <div class="result-top">
+                        <span class="result-label">SLOPE AT INFLECTION</span>
+                        <span class="result-symbol">mi</span>
+                    </div>
+
+                    <div id="slopeResult" class="result-value"></div>
+
+                </div>
+
+
+                <!-- EXTREMUM 1 -->
+                <div class="result-card">
+
+                    <div class="result-top">
+                        <span class="result-label">FIRST EXTREMUM</span>
+                        <span class="result-symbol">P1</span>
+                    </div>
+
+                    <div id="extremum1Result" class="result-value"></div>
+
+                </div>
+
+
+                <!-- EXTREMUM 2 -->
+                <div class="result-card">
+
+                    <div class="result-top">
+                        <span class="result-label">SECOND EXTREMUM</span>
+                        <span class="result-symbol">P2</span>
+                    </div>
+
+                    <div id="extremum2Result" class="result-value"></div>
+
+                </div>
+
+
+                <!-- ROOTS -->
+                <div class="result-card">
+
+                    <div class="result-top">
+                        <span class="result-label">REAL ROOTS</span>
+                        <span class="result-symbol">N</span>
+                    </div>
+
+                    <div id="rootsResult" class="result-value"></div>
+
+                </div>
+
+            </div>
+
+
+            <!-- GRAPH -->
+
+            <section id="graphSection" class="graph-section">
+
+                <div class="graph-header">
+
+                    <div>
+                        <span class="small-label">VISUALIZATION</span>
+                        <h2>Function Graph</h2>
+                    </div>
+
+                    <div id="graphFunctionDisplay" class="function-display"></div>
+
+                </div>
+
+
+                <div class="graph-card">
+                    <canvas id="functionCanvas"></canvas>
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <div>AMIRMO</div>
+        <span>MATHEMATICAL ANALYSIS SYSTEM</span>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

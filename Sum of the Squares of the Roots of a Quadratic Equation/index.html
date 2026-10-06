@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quadratic Equation Solver</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+
+    <script
+        async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+</head>
+
+<body>
+
+<div class="background-grid"></div>
+
+<main class="container">
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <div class="logo-symbol">∑</div>
+
+            <div>
+                <h1>Quadratic Equation Solver</h1>
+                <p>Calculate sum of nth power of roots</p>
+            </div>
+
+        </div>
+
+        <div class="formula-header">
+            $$ax^2 + bx + c = 0$$
+        </div>
+
+    </header>
+
+
+    <!-- INPUT -->
+
+    <section class="card input-card">
+
+        <div class="section-title">
+
+            <span class="number">01</span>
+
+            <div>
+                <h2>Enter Your Function</h2>
+                <p>Use the form f(x) = ax² + bx + c</p>
+            </div>
+
+        </div>
+
+        <div class="input-wrapper">
+
+            <span class="input-label">
+                f(x) =
+            </span>
+
+            <input
+                type="text"
+                id="functionInput"
+                placeholder="2x^2 + 3x + 1"
+                autocomplete="off"
+            >
+
+            <button id="analyzeBtn">
+                Analyze
+                <span>→</span>
+            </button>
+
+        </div>
+
+        <!-- MATH KEYBOARD -->
+        <div class="math-keyboard">
+            <button class="math-key" data-insert="^2">x²</button>
+            <button class="math-key" data-insert="^3">x³</button>
+            <button class="math-key" data-insert="^">x^n</button>
+            <button class="math-key" data-insert="sqrt">√</button>
+            <button class="math-key" data-insert="pi">π</button>
+            <button class="math-key" data-insert="alpha">α</button>
+            <button class="math-key" data-insert="beta">β</button>
+            <button class="math-key" data-insert="±">±</button>
+        </div>
+
+        <div class="examples">
+
+            <span>Try:</span>
+
+            <button
+                class="example-btn"
+                data-function="x^2 - 5x + 6">
+                x² - 5x + 6
+            </button>
+
+            <button
+                class="example-btn"
+                data-function="2x^2 + 3x + 1">
+                2x² + 3x + 1
+            </button>
+
+            <button
+                class="example-btn"
+                data-function="x^2 - 2x + 1">
+                x² - 2x + 1
+            </button>
+
+        </div>
+
+        <div id="errorMessage" class="error-message"></div>
+
+    </section>
+
+
+    <!-- RESULTS -->
+
+    <div id="results" class="hidden">
+
+
+        <!-- EQUATION DISPLAY -->
+
+        <section class="card compact-card">
+
+            <div class="mini-heading">
+                <span class="number small-number">02</span>
+
+                <div>
+                    <h2>Equation</h2>
+                    <p>Standard form</p>
+                </div>
+            </div>
+
+            <div
+                id="equationDisplay"
+                class="function-display">
+            </div>
+
+        </section>
+
+
+        <!-- MAIN ANALYSIS -->
+
+        <section class="card analysis-card">
+
+            <div class="mini-heading">
+
+                <span class="number small-number">03</span>
+
+                <div>
+                    <h2>Equation Analysis</h2>
+                    <p>Essential mathematical information</p>
+                </div>
+
+            </div>
+
+
+            <!-- COEFFICIENT LINE -->
+
+            <div class="coefficient-line">
+
+                <span>Coefficients</span>
+
+                <span>
+                    <b>a</b> = <strong id="aValue">—</strong>
+                </span>
+
+                <span>
+                    <b>b</b> = <strong id="bValue">—</strong>
+                </span>
+
+                <span>
+                    <b>c</b> = <strong id="cValue">—</strong>
+                </span>
+
+            </div>
+
+
+            <!-- DELTA -->
+
+            <div class="important-row">
+
+                <div>
+
+                    <span class="label">
+                        Discriminant (Δ)
+                    </span>
+
+                    <div
+                        id="deltaFormula"
+                        class="formula">
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="deltaValue"
+                    class="big-value">
+                    —
+                </div>
+
+            </div>
+
+
+            <!-- ROOTS -->
+
+            <div class="roots-row">
+
+                <div>
+
+                    <span class="label">
+                        Root 1 (x₁)
+                    </span>
+
+                    <div
+                        id="root1Value"
+                        class="formula">
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <span class="label">
+                        Root 2 (x₂)
+                    </span>
+
+                    <div
+                        id="root2Value"
+                        class="formula">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- VIETA'S FORMULAS -->
+
+            <div class="vieta-row">
+
+                <div>
+
+                    <span class="label">
+                        S (Sum of roots)
+                    </span>
+
+                    <div
+                        id="sValue"
+                        class="formula">
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <span class="label">
+                        P (Product of roots)
+                    </span>
+
+                    <div
+                        id="pValue"
+                        class="formula">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXPLANATION -->
+
+            <div
+                id="analysisText"
+                class="analysis-text">
+            </div>
+
+        </section>
+
+
+        <!-- POWER SUM CALCULATION -->
+
+        <section class="card analysis-card">
+
+            <div class="mini-heading">
+
+                <span class="number small-number">04</span>
+
+                <div>
+                    <h2>Sum of nth Power</h2>
+                    <p>Calculate $x_1^n + x_2^n$ using recursive formula</p>
+                </div>
+
+            </div>
+
+            <div class="recursive-formula-box">
+                <div class="formula-title">Recursive Formula:</div>
+                <div class="formula-content">
+                    $$A_0 = 2$$
+                    $$A_1 = S$$
+                    $$A_n = S \cdot A_{n-1} - P \cdot A_{n-2}$$
+                </div>
+            </div>
+
+            <div class="n-input-section">
+
+                <div class="n-input-group">
+                    <label for="nValue">Enter $n$ (non-negative integer)</label>
+                    <div class="input-with-button">
+                        <input
+                            type="number"
+                            id="nValue"
+                            placeholder="2"
+                            min="0"
+                            step="1"
+                            value="2"
+                        >
+                        <button id="calculateNBtn" class="calculate-n-button">
+                            Calculate $A_n$
+                            <span>→</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="result-box">
+                <div class="result-label">Result: $A_n = x_1^n + x_2^n$</div>
+                <div
+                    id="answerValue"
+                    class="big-value">
+                    —
+                </div>
+            </div>
+
+            <div class="step-by-step" id="stepByStep"></div>
+
+        </section>
+
+
+    </div>
+
+
+    <footer>
+
+        <span>
+            Quadratic Equation Solver
+        </span>
+
+        <span>
+            Mathematics • Equations • Analysis
+        </span>
+
+    </footer>
+
+</main>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
