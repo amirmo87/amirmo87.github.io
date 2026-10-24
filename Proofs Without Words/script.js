@@ -11,7 +11,7 @@ const proofs = [
         description: "Four identical right triangles arranged around a square reveal that the squares on the two legs add up to the square on the hypotenuse.",
         tag: "Geometry",
         type: "video",          // "video" for mp4/webm, "embed" for YouTube/Vimeo
-        src: "videos/pythagoras.mp4"
+        src: "GarfieldWordless.mp4"
     },
     {
         title: "Sum of Odd Numbers",
