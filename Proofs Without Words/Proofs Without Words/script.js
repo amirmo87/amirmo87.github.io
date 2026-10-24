@@ -14,11 +14,11 @@ const proofs = [
         src: "GarfieldWordless.mp4"
     },
     {
-        title: "Sum of Odd Numbers",
-        description: "Stacking L-shaped layers of odd sizes builds perfect squares, so the sum of the first n odd numbers is n².",
+        title: "Wilson’s Theorem",
+        description: "A neat test for primality: the factorial just before p, plus one, is divisible by p exactly when p is prime.",
         tag: "Number Theory",
         type: "video",
-        src: "videos/odd-sum.mp4"
+        src: "WilsonTheorem.mp4"
     },
     {
         title: "Sum of Triangular Numbers",
