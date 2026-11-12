@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Graph Theory — Discrete Mathematics</title>
+
+  <!-- KaTeX: نمادهای ریاضی و فونت Computer Modern (از CDN) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+
+  <link rel="stylesheet" href="graph-theory.css">
+  <!-- ترتیب defer حفظ می‌شود: اول KaTeX، بعد کد ما -->
+  <script defer src="graph-theory.js"></script>
+</head>
+<body style="margin:0;background:#0b1120">
+
+<!-- ====== شروع بخش گراف (این بلوک را می‌توانی داخل سایتت جاسازی کنی) ====== -->
+<section class="gt" id="graph-lab">
+
+  <a href="../Home/index.html" style="color:#e8c872;font-family:inherit;text-decoration:none">← Back to Home</a>  
+  <header class="gt-hero">
+    <p class="gt-kicker"><span>Discrete Mathematics</span><i>·</i><span>Graph Theory</span></p>
+    <h1 class="gt-title">Graph <em>Theory</em></h1>
+    <p class="gt-def">
+      <b>Definition 1.</b> A <i>graph</i> is a pair <span data-tex="G=(V,E)"></span>, where <span data-tex="V"></span>
+      is a finite set of <i>vertices</i> and <span data-tex="E\subseteq\binom{V}{2}"></span> is a set of <i>edges</i>.
+      Two graphs are <i>isomorphic</i>, <span data-tex="G\cong H"></span>, if a bijection <span data-tex="\varphi:V(G)\to V(H)"></span>
+      preserves adjacency.
+    </p>
+  </header>
+
+  <!-- ===== §1 ===== -->
+  <section class="gt-section" aria-labelledby="gt-s1">
+    <h2 id="gt-s1"><span class="gt-sec">§1</span> Specify the graph</h2>
+
+    <div class="gt-panel">
+      <div class="gt-params">
+        <div class="gt-param">
+          <div class="gt-param-label"><span data-tex="n=|V|"></span><small>vertices</small></div>
+          <div class="gt-stepper" data-for="n">
+            <button type="button" data-act="dec" aria-label="decrease n">−</button>
+            <output id="out-n">6</output>
+            <button type="button" data-act="inc" aria-label="increase n">+</button>
+          </div>
+          <div class="gt-range"><span data-tex="1\le n\le 7"></span></div>
+        </div>
+
+        <div class="gt-param">
+          <div class="gt-param-label"><span data-tex="m=|E|"></span><small>edges</small></div>
+          <div class="gt-stepper" data-for="m">
+            <button type="button" data-act="dec" aria-label="decrease m">−</button>
+            <output id="out-m">7</output>
+            <button type="button" data-act="inc" aria-label="increase m">+</button>
+          </div>
+          <div class="gt-range" id="range-m"></div>
+        </div>
+      </div>
+
+      <div class="gt-subtitle">Distinguishing properties</div>
+      <div class="gt-chips" id="gt-chips"></div>
+
+      <div class="gt-presets">
+        <span>Examples</span>
+        <button type="button" data-preset="4,6">K₄</button>
+        <button type="button" data-preset="5,4,connected,acyclic">trees on 5 vertices</button>
+        <button type="button" data-preset="6,9,regular:3">cubic, n = 6</button>
+        <button type="button" data-preset="6,9,bipartite,connected">K₃,₃ family</button>
+        <button type="button" data-preset="7,11,connected">n = 7, m = 11</button>
+        <button type="button" data-preset="6,6,eulerian">Eulerian, n = m = 6</button>
+        <button type="button" data-preset="6,8,connected,planar">planar, 6 vertices</button>
+      </div>
+    </div>
+
+    <div class="gt-panel gt-statement" id="gt-statement" aria-live="polite"></div>
+  </section>
+
+  <!-- ===== §2 ===== -->
+  <section class="gt-section" aria-labelledby="gt-s2">
+    <h2 id="gt-s2"><span class="gt-sec">§2</span> Realizations up to isomorphism</h2>
+
+    <div class="gt-toolbar">
+      <div class="gt-modes" role="group" aria-label="vertex colouring">
+        <button type="button" id="gt-mode-deg" aria-pressed="true">colour by degree</button>
+        <button type="button" id="gt-mode-color" aria-pressed="false">proper colouring</button>
+      </div>
+      <div class="gt-legend" id="gt-legend"></div>
+    </div>
+
+    <div class="gt-busy" id="gt-busy" hidden>Enumerating graphs</div>
+    <div class="gt-grid" id="gt-grid"></div>
+    <div class="gt-more"><button type="button" id="gt-more" hidden>Show more</button></div>
+  </section>
+
+  <footer class="gt-foot">
+    <span><span data-tex="\blacksquare"></span> &nbsp;Hover over a vertex to highlight its incident edges.</span>
+    <span data-tex="\delta,\Delta:\ \text{min / max degree}\quad c:\ \text{components}\quad \beta=m-n+c\quad \chi:\ \text{chromatic number}\quad g:\ \text{girth}"></span>
+  </footer>
+</section>
+<!-- ====== پایان بخش گراف ====== -->
+
+</body>
+</html>
